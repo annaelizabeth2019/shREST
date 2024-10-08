@@ -20,6 +20,7 @@ for (const key in data) {
         };
 
         movies.push(`${key}`)
+        app.all(`/${key}`, (c) => c.json({ movie }));
         app.all(`/${key}/quotes/random`, (c) => c.json({ quote: getRandomQuote() }));
         app.all(`/${key}/quotes/random/text`, (c) => c.text(getRandomQuote()));
         app.all(`/${key}/quotes`, (c) => c.json(quotes));
