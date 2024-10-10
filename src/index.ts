@@ -71,8 +71,9 @@ app.get("/", (c) => {
                     <li><a href="${movie.id}/cast/top">Get top cast and their characters from ${movie.name} in JSON</a></li>
                     <li><a href="${movie.id}/quotes">Get all quotes from ${movie.name} in JSON</a></li>
                     <li><a href="${movie.id}/quotes/random/text">Get a random quote from a ${movie.name} as text</a></li>
-                    <li><a href="${movie.id}/quotes/random">Get a random quote from ${movie.name} as JSON</a></li>`).join('')}
-                </ul>
+                    <li><a href="${movie.id}/quotes/random">Get a random quote from ${movie.name} as JSON</a></li>
+                </ul>`).join('')}
+                
         </ul>
     </body>
     </html>
