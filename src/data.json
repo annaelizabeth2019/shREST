@@ -1,5 +1,6 @@
 {
     "shrek": {
+        "id": 0,
         "name": "Shrek",
         "year": 2001,
         "top_cast": [
@@ -252,27 +253,68 @@
         ]
     },
     "shrek_2": {
+        "id": 1,
         "name": "Shrek 2",
         "year": 2001,
-        "quotes": [],
-        "top_cast": []
+        "quotes": [
+            ""
+        ],
+        "top_cast": [
+            {
+                "name": "",
+                "characters": [
+                    ""
+                ]
+            }
+        ]
     },
     "shrek_the_third": {
+        "id": 2,
         "name": "Shrek the Third",
         "year": 2001,
-        "quotes": [],
-        "top_cast": []
+        "quotes": [
+            ""
+        ],
+        "top_cast": [
+            {
+                "name": "",
+                "characters": [
+                    ""
+                ]
+            }
+        ]
     },
     "shrek_forever_after": {
+        "id": 3,
+        "key": "shrek_forever_after",
         "name": "Shrek Forever After",
         "year": 2001,
-        "quotes": [],
-        "top_cast": []
+        "quotes": [
+            ""
+        ],
+        "top_cast": [
+            {
+                "name": "",
+                "characters": [
+                    ""
+                ]
+            }
+        ]
     },
     "shrek_5": {
+        "id": 4,
         "name": "Shrek 5",
-        "year": 2001,
-        "quotes": [],
-        "top_cast": []
+        "year": 2026,
+        "quotes": [
+            ""
+        ],
+        "top_cast": [
+            {
+                "name": "",
+                "characters": [
+                    ""
+                ]
+            }
+        ]
     }
 }
