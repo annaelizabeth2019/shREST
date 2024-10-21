@@ -1,4 +1,29 @@
-<!DOCTYPE html>
+import { movies } from "./movies";
+
+var html = `<!DOCTYPE html>
+    <html lang="en">
+    <link rel="stylesheet" href="/public/styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>shREST</title>
+    </head>
+    <body>
+        <h1>shREST</h1>
+        <h3>Shrek Rest API</h3>
+        <p>Use the following endpoints to get random movie quotes:</p>
+        <ul>
+            <li><a href="/random">Get a random movie</a></li>
+        </ul>
+        <p>Available Movies:</p>
+        <ul>
+        </ul>
+    </body>
+</html>` // this is the base HTML before we have movies
+
+if (movies.length > 0) {
+    // update the HTML with each movie
+    html = `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -151,3 +176,7 @@
 </body>
 
 </html>
+`;
+}
+
+export default html
