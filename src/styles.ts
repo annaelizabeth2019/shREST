@@ -1,4 +1,5 @@
-/* Global Styles NOTE: This file is only for formatting, must copy final result to styles.ts */
+/* Global Styles */
+const styles = `/* Global Styles NOTE: This file is only for formatting, must copy final result to styles.ts */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #3E7A30;
@@ -251,4 +252,6 @@ pre {
         width: 45%;
         white-space: nowrap;
     }
-}
+}`;
+
+export default styles
