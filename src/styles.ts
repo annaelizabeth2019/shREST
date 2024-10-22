@@ -1,5 +1,6 @@
 /* Global Styles */
-export var styles = `body {
+export var styles = `/* Global Styles NOTE: This file is only for formatting, must copy final result to styles.ts */
+body {
     font-family: 'Arial', sans-serif;
     background-color: #3E7A30;
     color: #fff;
@@ -25,8 +26,13 @@ p {
     font-size: 1.3rem;
     line-height: 1.7;
     margin-bottom: 20px;
-    color: #FFE700; /* Slightly darker yellow for better contrast */
+    color: #FFE700;
+    /* Slightly darker yellow for better contrast */
     text-shadow: 1px 1px 2px #000;
+}
+
+text {
+    color: #FFE700;
 }
 
 a {
@@ -52,125 +58,150 @@ a:hover {
 }
 
 .header-container {
-    text-align: center; 
+    text-align: center;
     margin-top: 60px;
     color: #556b2f;
 }
 
 .header-container h1 {
     font-size: 3rem;
-    margin: 0; 
-    text-shadow: 2px 2px 4px #000; 
+    margin: 0;
+    text-shadow: 2px 2px 4px #000;
 }
 
 .header-container p {
-    font-size: 1.2rem; 
-    line-height: 1.5; 
-    color: #F5DEB3; 
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #F5DEB3;
 }
 
 footer {
     margin-top: 40px;
     font-size: 1rem;
-    color: #FFE700; /* Consistent footer text color */
+    color: #FFE700;
+    /* Consistent footer text color */
 }
 
 .styled-button {
-    background-color: rgba(107, 142, 35, .8); /* Darker ogre green */
-    color: #3E7A30; /* Darker text for contrast */
-    padding: 15px 30px; 
+    background-color: rgba(107, 142, 35, .8);
+    /* Darker ogre green */
+    color: #3E7A30;
+    /* Darker text for contrast */
+    padding: 15px 30px;
     border: none;
-    border-radius: 12px; 
-    font-size: 1.6rem; 
+    border-radius: 12px;
+    font-size: 1.6rem;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-    box-shadow: 0 0 20px rgba(107, 142, 35, .8), 0 0 30px rgba(107, 142, 35, .6); /* Glowing effect */
+    box-shadow: 0 0 20px rgba(107, 142, 35, .8), 0 0 30px rgba(107, 142, 35, .6);
+    /* Glowing effect */
 }
 
 .styled-button:hover {
-    background-color: rgba(107, 142, 35, 1); /* Slightly lighter gold on hover */
-    transform: scale(1.05); 
+    background-color: rgba(107, 142, 35, 1);
+    /* Slightly lighter gold on hover */
+    transform: scale(1.05);
 }
 
 /* Table Styles */
 table {
     width: 100%;
-    border-collapse: collapse; 
+    border-collapse: collapse;
     margin: 20px 0;
     border: none;
     max-width: 100%;
 }
 
-th, td {
-    border: 1px solid #556B2F; 
-    padding: 12px; 
-    text-align: left; 
+th,
+td {
+    border: 1px solid #556B2F;
+    padding: 12px;
+    text-align: left;
 }
 
 th {
-    background-color: rgba(107, 142, 35, 0.8); 
-    color: #FFB700; 
-    font-size: 1.2rem; 
+    background-color: rgba(107, 142, 35, 0.8);
+    color: #FFB700;
+    font-size: 1.2rem;
 }
 
 td {
-    background-color: rgba(255, 255, 255, 0.2); 
-    color: #F5DEB3; /* Wheat-like color for better readability */
-    font-size: 1rem; 
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #F5DEB3;
+    /* Wheat-like color for better readability */
+    font-size: 1rem;
 }
 
 tr:nth-child(even) {
-    background-color: rgba(107, 142, 35, 0.5); 
+    background-color: rgba(107, 142, 35, 0.5);
 }
 
 tr:hover {
-    background-color: rgba(107, 142, 35, 0.3); 
+    background-color: rgba(107, 142, 35, 0.3);
 }
 
 /* Remove bullet points from lists */
 ul {
-    list-style: none; 
-    padding: 0; 
-    margin: 0; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 pre {
-    white-space: pre-wrap;       /* css-3 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    white-space: pre-wrap;
+    /* css-3 */
+    white-space: -moz-pre-wrap;
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* Internet Explorer 5.5+ */
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
     body {
-        padding: 10px; /* Add padding to the body for mobile */
+        padding: 10px;
+        /* Add padding to the body for mobile */
     }
 
     .header-container {
-        text-align: center; /* Center align text in the header */
-        margin: 10px 0; /* Adjust margin for mobile */
+        text-align: center;
+        /* Center align text in the header */
+        margin: 10px 0;
+        /* Adjust margin for mobile */
     }
 
     h1 {
-        font-size: 2.5rem; /* Smaller font for smaller screens */
+        font-size: 2.5rem;
+        /* Smaller font for smaller screens */
     }
 
-    p, a, .styled-button {
-        font-size: 1rem; /* Smaller font for paragraphs and links */
-        margin: 10px 0; /* Add vertical margin for spacing */
+    p,
+    a,
+    .styled-button {
+        font-size: 1rem;
+        /* Smaller font for paragraphs and links */
+        margin: 10px 0;
+        /* Add vertical margin for spacing */
     }
 
     .container {
-        width: 100%; /* Ensure container uses full width */
-        padding: 10px; /* Add padding for mobile */
-        margin: 0; /* Remove margins for mobile */
+        width: 100%;
+        /* Ensure container uses full width */
+        padding: 10px;
+        /* Add padding for mobile */
+        margin: 0;
+        /* Remove margins for mobile */
     }
 
     table {
-        width: 100%; /* Ensure tables use full width */
-        font-size: 0.9rem; /* Smaller font size for table */
+        width: 100%;
+        /* Ensure tables use full width */
+        font-size: 0.9rem;
+        /* Smaller font size for table */
     }
 
     td {
@@ -180,19 +211,31 @@ pre {
 
     /* Add additional styling for the footer */
     footer {
-        font-size: 0.9rem; /* Smaller footer font size */
-        text-align: center; /* Center align footer text */
-        margin: 20px 0; /* Add margin for spacing */
+        font-size: 0.9rem;
+        /* Smaller footer font size */
+        text-align: center;
+        /* Center align footer text */
+        margin: 20px 0;
+        /* Add margin for spacing */
     }
 
     ul {
-        padding-left: 20px; /* Indent list items */
-        text-align: left; /* Align text to the left for better readability */
+        padding-left: 20px;
+        /* Indent list items */
+        text-align: left;
+        /* Align text to the left for better readability */
     }
+
     /* Force table to not be like tables anymore */
-    table, thead, tbody, th, td, tr {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
         display: block;
     }
+
     /* Hide table headers (but not display: none;, for accessibility) */
     thead tr {
         position: absolute;
@@ -200,14 +243,13 @@ pre {
         left: -9999px;
     }
 
-  td:before {
-    /* Now like a table header */
-    position: absolute;
-    /* Top/left values mimic padding */
-    top: 0;
-    left: 6px;
-    width: 45%;
-    white-space: nowrap;
-  }
-}
-`;
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 0;
+        left: 6px;
+        width: 45%;
+        white-space: nowrap;
+    }
+}`;
