@@ -1,5 +1,4 @@
-/* Global Styles */
-const styles = `/* Global Styles NOTE: This file is only for formatting, must copy final result to styles.ts */
+const styles = `/* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #3E7A30;
@@ -17,6 +16,7 @@ body {
 }
 
 h1 {
+    font-family: 'Georgia', serif;
     font-size: 3rem;
     margin: 0 20px;
     text-shadow: 2px 2px 4px #000;
@@ -26,17 +26,17 @@ p {
     font-size: 1.3rem;
     line-height: 1.7;
     margin-bottom: 20px;
-    color: #FFE700;
+    color: #C4D300;
     /* Slightly darker yellow for better contrast */
     text-shadow: 1px 1px 2px #000;
 }
 
 text {
-    color: #FFE700;
+    color: #C4D300;
 }
 
 a {
-    color: #FFE700;
+    color: #C4D300;
     text-decoration: none;
     font-weight: bold;
     line-height: 1.7;
@@ -78,7 +78,7 @@ a:hover {
 footer {
     margin-top: 40px;
     font-size: 1rem;
-    color: #FFE700;
+    color: #C4D300;
     /* Consistent footer text color */
 }
 

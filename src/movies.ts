@@ -1,6 +1,6 @@
 import data from "./data.json";
 
-type Movie = {
+export type Movie = {
     id: number,
     name: string;
     year: number;
@@ -23,9 +23,17 @@ for (const key in data) {
 }
 
 
-const getRandomMovie = (): number => {
-    const index = Math.floor(Math.random() * movies.length);
-    return movies[index].id;
+const getRandomMovieForQuote = (): number => {
+    var values: number[] = []
+    movies.forEach((m, i) => {
+        if (m.quotes.length) {
+            console.log(m.id, i)
+            values.push(i)
+        }
+    })
+    const index = Math.floor(Math.random() * values.length);
+    console.log(index, "values", values)
+    return values[index];
 };
 const getRandomQuote = (id: number): string => {
     const quotes = movies[id].quotes
@@ -36,4 +44,4 @@ const getRandomQuote = (id: number): string => {
     return quotes[index];
 };
 
-export { getRandomMovie, getRandomQuote, movies }
+export { getRandomMovieForQuote, getRandomQuote, movies }
