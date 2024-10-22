@@ -154,7 +154,7 @@ if (movies.length > 0) {
                         </text>
                     </td>
                     <td>
-                        <pre><code>{"quote":"The Donkey: All right, I hope you heard that? She called me a \"noble steed.\" She thinks I'm a steed."}</code></pre>
+                        <pre><code>The Donkey: All right, I hope you heard that? She called me a \"noble steed.\" She thinks I'm a steed." // string</code></pre>
                     </td>
                 </tr>
                 <tr>
@@ -173,7 +173,7 @@ if (movies.length > 0) {
             </tbody>
         </table>
         <h2>
-            More Route Info
+            Extended Route Information for Each Shrek
         </h2>
         <table>
             <thead>
