@@ -1,5 +1,5 @@
 /* Global Styles */
-export var styles = `/* Global Styles NOTE: This file is only for formatting, must copy final result to styles.ts */
+const styles = `/* Global Styles NOTE: This file is only for formatting, must copy final result to styles.ts */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #3E7A30;
@@ -253,3 +253,5 @@ pre {
         white-space: nowrap;
     }
 }`;
+
+export default styles
