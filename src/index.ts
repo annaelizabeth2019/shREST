@@ -2,7 +2,7 @@ import { Context, Hono } from "hono";
 import { cors } from "hono/cors";
 import { HTTPException } from "hono/http-exception";
 import { serveStatic } from "hono/serve-static";
-import { getRandomMovie, getRandomQuote, movies } from "./movies";
+import { getRandomMovieForQuote, getRandomQuote, movies } from "./movies";
 import html from "./html";
 import styles from "./styles";
 
@@ -29,7 +29,7 @@ app.use("*", cors());
 
 app.get("/", (c) => c.html(html));
 
-app.get("/quotes/random", (c) => c.json(getRandomQuote(getRandomMovie())));
+app.get("/quotes/random", (c) => c.json(getRandomQuote(getRandomMovieForQuote())));
 app.get("/movies", (c) => c.json(movies.map(m => ({
     name: m.name,
     id: m.id,
@@ -42,10 +42,14 @@ app.get("/movies", (c) => c.json(movies.map(m => ({
 
 movies.forEach((movie) => {
     app.get(`/${movie.id}`, (c) => c.json({ movie }));
-    app.get(`/${movie.id}/quotes/random`, (c) => c.json(getRandomQuote(movie.id)));
-    app.get(`/${movie.id}/quotes/random/text`, (c) => c.text(getRandomQuote(movie.id)));
-    app.get(`/${movie.id}/quotes`, (c) => c.json(movie.quotes));
-    app.get(`/${movie.id}/cast/top`, (c) => c.json(movie.top_cast));
+    if (movie.quotes.length) {
+        app.get(`/${movie.id}/quotes/random`, (c) => c.json(getRandomQuote(movie.id)));
+        app.get(`/${movie.id}/quotes/random/text`, (c) => c.text(getRandomQuote(movie.id)));
+        app.get(`/${movie.id}/quotes`, (c) => c.json(movie.quotes));
+    }
+    if (movie.top_cast.length) {
+        app.get(`/${movie.id}/cast/top`, (c) => c.json(movie.top_cast));
+    }
 });
 
 app.all("*", (c) => c.notFound());
