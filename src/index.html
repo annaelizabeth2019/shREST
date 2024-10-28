@@ -1,21 +1,139 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./assets/styles.css">
-<!--near future todo: use bootstrap? Could be a good way to get used to it-->
-<!--far future todo: change the grossass font-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/styles.css">
+    <title>shREST</title>
 </head>
+
 <body>
-    <section>
-        <h1>Shrest!</h1>
-        <h2>A Shrestful API</h2>
-        <p>Your one-stop shop for all things mean and green</p>
-        </section>
-    <section id="searchsection">
-        <!--style area once code is functional-->
-        <textarea id="quoteSpace"></textarea>
-        <button type="button" id="searchBtn">Search</button>
-    </section>
-<script src="./assets/script.js"></script>
+    <div class="header-container">
+        <h1 class="header-container">Welcome to the shREST</h1>
+        <p class="header-container">A Shrek REST API</p>
+        <a href="/random" class="styled-button">Get a random movie</a>
+    </div>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Movie</th>
+                    <th>ID</th>
+                    <th>Endpoints</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${movies.map(movie => `
+                <tr>
+                    <td><a href="/${movie.id}">
+                            <h3>${movie.name}</h3>
+                        </a></td>
+                    <td>${movie.id}</td>
+                    <td>
+                        <ul>
+                            <li><code><strong>GET</strong> /${movie.id} </code><a href="/${movie.id}">Get All Items</a>
+                            </li>
+                            <li><code><strong>GET</strong> /${movie.id}/cast/top </code><a
+                                    href="/${movie.id}/cast/top">Get Top Cast</a></li>
+                            <li><code><strong>GET</strong> /${movie.id}/quotes </code><a href="/${movie.id}/quotes">Get
+                                    All Quotes</a></li>
+                            <li><code><strong>GET</strong> /${movie.id}/quotes/random/text </code><a
+                                    href="/${movie.id}/quotes/random/text">Get Random Quote as Text</a></li>
+                            <li><code><strong>GET</strong> /${movie.id}/quotes/random </code><a
+                                    href="/${movie.id}/quotes/random">Get Random Quote as JSON</a></li>
+                        </ul>
+                    </td>
+                </tr>
+                `).join('')}
+            </tbody>
+        </table>
+
+        <h2>Responses</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Endpoint</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+
+                        <h3>All Items</h3>
+                    </td>
+                    <td>
+                        <pre>
+{
+"id": 0,
+"name": "Shrek",
+"year": 2001,
+"top_cast": [
+//see top cast response
+],
+"quotes": ["quote 1", "quote 2", ...], // array of strings
+}
+                    </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        <h3>Get Top Cast</h3>
+                    </td>
+                    <td>
+                        <pre>
+[
+    {
+        "name": "Mike Myers",
+        "characters": [
+        "Shrek",
+        "Blind Mouse",
+        "Opening Narration"
+        ]
+    }
+]
+                    </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        <h3>Get All Quotes</h3>
+                    </td>
+                    <td>
+                        <pre>
+["quote 1", "quote 2", ...] // array of strings
+                    </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        <h3>Get Random Quote as Text</h3>
+                    </td>
+                    <td>
+                        <pre>
+Shrek: That'll do, Donkey. That'll do.
+                    </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        <h3>Get Random Quote as Text</h3>
+                    </td>
+                    <td>
+                        <pre>
+{"quote":"The Donkey: All right, I hope you heard that? She called me a \"noble steed.\" She thinks I'm a steed."}
+                    </pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
+
+</html>
