@@ -1,4 +1,77 @@
-<!DOCTYPE html>
+import { movies, Movie } from "./movies";
+
+var html = `<!DOCTYPE html>
+    <html lang="en">
+    <link rel="stylesheet" href="/public/styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>shREST</title>
+    </head>
+    <body>
+        <h1>shREST</h1>
+        <h3>Shrek Rest API</h3>
+        <p>Use the following endpoints to get random movie quotes:</p>
+        <ul>
+            <li><a href="/random">Get a random movie</a></li>
+        </ul>
+        <p>Available Movies:</p>
+        <ul>
+        </ul>
+    </body>
+</html>` // this is the base HTML before we have data
+
+// this function excludes route documentation for movies that don't have quotes yet (Shrek 5: 2026)
+const getTableRowForMovieRoutes = (movie: Movie) => {
+    if (movie.quotes.length) {
+        return `
+                <tr>
+                    <td><a href="/${movie.id}">
+                            <h3>${movie.name}</h3>
+                        </a></td>
+                    <td>${movie.id}</td>
+                    <td>
+                        <ul>
+                            <li><code><strong>GET</strong> /${movie.id}</code> <a href="/${movie.id}">Get All Items for
+                                    ${movie.name}</a></li>
+                            <li><code><strong>GET</strong> /${movie.id}/cast/top</code> <a
+                                    href="/${movie.id}/cast/top">Get Top
+                                    Cast for ${movie.name}</a></li>
+                            <li><code><strong>GET</strong> /${movie.id}/quotes</code> <a href="/${movie.id}/quotes">Get
+                                    All Quotes for ${movie.name}</a></li>
+                            <li><code><strong>GET</strong> /${movie.id}/quotes/random/text</code> <a
+                                    href="/${movie.id}/quotes/random/text">Get Random Quote as Text for
+                                    ${movie.name}</a></li>
+                            <li><code><strong>GET</strong> /${movie.id}/quotes/random</code> <a
+                                    href="/${movie.id}/quotes/random">Get Random Quote as JSON for ${movie.name}</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                `
+    }
+    return `
+                <tr>
+                    <td><a href="/${movie.id}">
+                            <h3>${movie.name}</h3>
+                        </a></td>
+                    <td>${movie.id}</td>
+                    <td>
+                        <ul>
+                            <li><code><strong>GET</strong> /${movie.id}</code> <a href="/${movie.id}">Get All Items for
+                                    ${movie.name}</a></li>
+                            <li><code><strong>GET</strong> /${movie.id}/cast/top</code> <a
+                                    href="/${movie.id}/cast/top">Get Top
+                                    Cast for ${movie.name}</a></li>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                `
+}
+if (movies.length > 0) {
+    // update the HTML with each movie
+    html = `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -159,31 +232,7 @@
                 </tr>
             </thead>
             <tbody>
-                ${movies.map(movie => `
-                <tr>
-                    <td><a href="/${movie.id}">
-                            <h3>${movie.name}</h3>
-                        </a></td>
-                    <td>${movie.id}</td>
-                    <td>
-                        <ul>
-                            <li><code><strong>GET</strong> /${movie.id}</code> <a href="/${movie.id}">Get All Items for
-                                    ${movie.name}</a></li>
-                            <li><code><strong>GET</strong> /${movie.id}/cast/top</code> <a
-                                    href="/${movie.id}/cast/top">Get Top
-                                    Cast for ${movie.name}</a></li>
-                            <li><code><strong>GET</strong> /${movie.id}/quotes</code> <a href="/${movie.id}/quotes">Get
-                                    All Quotes for ${movie.name}</a></li>
-                            <li><code><strong>GET</strong> /${movie.id}/quotes/random/text</code> <a
-                                    href="/${movie.id}/quotes/random/text">Get Random Quote as Text for
-                                    ${movie.name}</a></li>
-                            <li><code><strong>GET</strong> /${movie.id}/quotes/random</code> <a
-                                    href="/${movie.id}/quotes/random">Get Random Quote as JSON for ${movie.name}</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                `).join('')}
+                ${movies.map(movie => getTableRowForMovieRoutes(movie)).join('')}
             </tbody>
         </table>
     </main>
@@ -192,4 +241,7 @@
     </footer>
 </body>
 
-</html>
+</html>`;
+}
+
+export default html
