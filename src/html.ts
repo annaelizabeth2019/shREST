@@ -4,6 +4,8 @@ var html = `<!DOCTYPE html>
     <html lang="en">
     <link rel="stylesheet" href="/public/styles.css">
     <head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5559360369279993"
+     crossorigin="anonymous"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>shREST</title>
