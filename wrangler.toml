@@ -114,4 +114,5 @@ enabled = true
 # index_name = "my-index"
 
 [build]
-command = "npm install --no-optional && npm run build"
+command = "npm install --no-optional && wrangler publish"
+
