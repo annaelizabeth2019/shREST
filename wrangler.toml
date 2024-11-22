@@ -112,3 +112,6 @@ enabled = true
 # [[vectorize]]
 # binding = "MY_INDEX"
 # index_name = "my-index"
+
+[build]
+command = "npm install --no-optional && npm run build"
