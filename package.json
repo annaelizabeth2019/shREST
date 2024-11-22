@@ -6,9 +6,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev",
-    "start": "wrangler dev",
+    "deploy": "npm install --no-optional && wrangler deploy",
+    "dev": "npm install --no-optional && wrangler dev",
+    "start": "npm install --no-optional && wrangler dev",
     "test": "vitest",
     "cf-typegen": "wrangler types"
   },
