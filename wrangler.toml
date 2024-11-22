@@ -113,6 +113,3 @@ enabled = true
 # binding = "MY_INDEX"
 # index_name = "my-index"
 
-[build]
-command = "npm install --no-optional && wrangler deploy"
-
