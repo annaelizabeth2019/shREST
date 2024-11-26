@@ -284,4 +284,4 @@ If you have questions, feedback, or would like to connect, feel free to reach ou
 - **Aubrey McKinney** - A big thanks to my friend [Aubrey McKinney](https://github.com/Shadowasders) for his support and inspiration throughout this project. 
 - **OpenAI's ChatGPT** – For the assistance in planning, debugging, and crafting this project. I hate to admit it, but ChatGPT is fantastic at generating templates and boilerplate. 
 - **IMDB** - Really helped with finding Shrek Quotes. 
-- **[Shrek Fans Worldwide](https://www.shrek.com/)** – and anyone who's a bit of an onion. 
+- **[Shrek Fans Worldwide](https://www.shrek.com/)** – shoutout to all the onions. 
