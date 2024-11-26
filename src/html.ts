@@ -219,7 +219,7 @@ if (movies.length > 0) {
                         </text>
                     </td>
                     <td>
-                        <pre><code>The Donkey: All right, I hope you heard that? She called me a \"noble steed.\" She thinks I'm a steed." // string</code></pre>
+                        <pre><code>The Donkey: All right, I hope you heard that? She called me a \"noble steed.\" She thinks I'm a steed. // string</code></pre>
                     </td>
                 </tr>
                 <tr>
