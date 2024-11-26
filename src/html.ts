@@ -1,18 +1,34 @@
 import { movies, Movie } from "./movies";
 
-var html = `<!DOCTYPE html>
-    <html lang="en">
+var head = `<head>
     <link rel="stylesheet" href="/public/styles.css">
-    <head>
+    <link rel="icon" type="image/png" href="public/icon.png">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5559360369279993"
      crossorigin="anonymous"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="icon.png">
         <title>shREST</title>
-    </head>
-    <body>
+    </head>`
+
+var header = `<header class="header-container">
         <h1>shREST</h1>
-        <h3>Shrek Rest API</h3>
+        <img src="/public/icon.png" width="75" alt="shrek face">
+        <p>A Shrek REST API</p>
+    </header>`
+
+var footer = `<footer>
+        <p>
+            <a href="https://www.linkedin.com/in/anna-elizabeth-peterson/">🧌 Anna Peterson</a></p>
+        <p><a href="https://github.com/annaelizabeth2019/shREST"><img src="https://img.shields.io/github/stars/annaelizabeth2019/shREST?style=social" alt="Github Link"></a></p>
+        <p>© 2024 shREST API. All rights reserved.</p>
+        </footer>`
+
+var html = `<!DOCTYPE html>
+    <html lang="en">
+    ${head}
+    <body>
+        ${header}
         <p>Use the following endpoints to get random movie quotes:</p>
         <ul>
             <li><a href="/random">Get a random movie</a></li>
@@ -20,6 +36,7 @@ var html = `<!DOCTYPE html>
         <p>Available Movies:</p>
         <ul>
         </ul>
+        ${footer}
     </body>
 </html>` // this is the base HTML before we have data
 
@@ -75,22 +92,9 @@ if (movies.length > 0) {
     // update the HTML with each movie
     html = `<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5559360369279993"
-     crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/styles.css">
-    <meta name="description" content="Explore the shREST API for Shrek movies and quotes.">
-    <title>shREST</title>
-</head>
-
+${head}
 <body>
-    <header class="header-container">
-        <h1>shREST</h1>
-        <p>A Shrek REST API</p>
-    </header>
+    ${header}
     <a href="/quotes/random" class="styled-button">RANDOM MOVIE QUOTE!</a>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5559360369279993"
@@ -253,9 +257,7 @@ if (movies.length > 0) {
             </tbody>
         </table>
     </main>
-    <footer>
-        <p>© 2024 shREST API. All rights reserved.</p>
-    </footer>
+    ${footer}
 </body>
 
 </html>`;

@@ -15,6 +15,11 @@ body {
     background-position: center;
 }
 
+footer {
+    text-align: center;
+    margin: 0;
+}
+
 h1 {
     font-family: 'Georgia', serif;
     font-size: 3rem;

@@ -6,18 +6,21 @@ import { getRandomMovieForQuote, getRandomQuote, movies } from "./movies";
 import html from "./html";
 import styles from "./styles";
 
-const app = new Hono();
+type Bindings = {
+    assets: R2Bucket
+}
 
-// serveStatic middleware provides CSS styling
-app.all('/public/*', serveStatic({
-    path: "./assets/styles.css",
+const app = new Hono<{ Bindings: Bindings }>();
+
+// serve CSS styling
+app.all('/public/styles.css', serveStatic({
+    // path: "./assets/styles.css",
     getContent: async (path: string, c: Context) => {
         try {
-            const filePath = `./assets/${path}`;  // Path to the CSS file
             return new Response(styles, {
                 status: 200,
                 headers: {
-                    'Content-Type': 'text/css',  // Set content type as CSS
+                    'Content-Type': 'text/css',
                 }
             });
         } catch (err) {
@@ -25,6 +28,25 @@ app.all('/public/*', serveStatic({
         }
     }
 }));
+
+// serves the icon 
+app.get('/public/icon.png', async (c) => {
+    const bucket = c.env.assets
+    try {
+        const object = await bucket.get("icon.png")
+        if (!object) {
+            return c.text('File not found', 404);
+        }
+
+        return c.body(await object.arrayBuffer(), 200, {
+            'Content-Type': 'image/png',
+        });
+    } catch (err) {
+        console.error(err);
+        return c.text('Error fetching file', 500);
+    }
+});
+
 app.use("*", cors());
 
 app.get("/", (c) => c.html(html));
