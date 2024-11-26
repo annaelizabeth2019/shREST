@@ -265,7 +265,7 @@ Thank you for helping make shREST even better!
 
 ## License
 
-This project is licensed under the [MIT License](./LICENSE). You are free to use, modify, and distribute the code as per the terms of the license.  
+This project is licensed under the MIT License. You are free to use, modify, and distribute the code as per the terms of the license.  
 
 ### Fair Use Disclaimer
 The Shrek-themed REST API includes quotes and references from the *Shrek* franchise. These materials are provided solely for educational and non-commercial purposes under the principles of **fair use**. This API is not affiliated with or endorsed by DreamWorks Animation or any related entities.  
