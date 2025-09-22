@@ -11,9 +11,8 @@ var head = `<head>
         <title>shREST</title>
     </head>`
 
-var header = `<header class="header-container">
+var header = `<header>
         <h1>shREST</h1>
-        <img src="/public/icon.png" width="75" alt="shrek face">
         <p>A Shrek REST API</p>
     </header>`
 
@@ -28,6 +27,7 @@ var html = `<!DOCTYPE html>
     <html lang="en">
     ${head}
     <body>
+        <a href="#main-content" class="skip-link">Skip to main content</a>
         ${header}
         <p>Use the following endpoints to get random movie quotes:</p>
         <ul>
@@ -95,7 +95,15 @@ if (movies.length > 0) {
 ${head}
 <body>
     ${header}
-    <a href="/quotes/random" class="styled-button">RANDOM MOVIE QUOTE!</a>
+    <button id="quote-button" class="styled-button">RANDOM MOVIE QUOTE!</button>
+    
+    <!-- Quote Display Area -->
+    <div id="quote-container" class="quote-container" style="display: none;">
+        <div class="quote-content">
+            <div class="quote-text" id="quote-text"></div>
+            <div class="quote-movie" id="quote-movie"></div>
+        </div>
+    </div>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5559360369279993"
      crossorigin="anonymous"></script>
@@ -110,7 +118,9 @@ ${head}
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 
-    <main class="container">
+    <script src="/public/quote-handler.js"></script>
+
+    <main id="main-content" class="container">
         <h2>Endpoints</h2>
         <text>See below for detailed routes for each movie and movie_ids.</text>
         <table>
@@ -123,13 +133,13 @@ ${head}
             </thead>
             <tbody>
                 <tr>
-                    <td>
+                    <td data-label="Endpoint">
                         <code><strong>GET</strong> /movies</code>
                     </td>
-                    <td>
+                    <td data-label="Description">
                         <a href="/movies"> List Movies</a>
                     </td>
-                    <td>
+                    <td data-label="Response">
                         <code><pre>[
     {
     "name": "Shrek",
@@ -147,23 +157,23 @@ ${head}
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td data-label="Endpoint">
                         <code><strong>GET</strong> /quotes/random</code>
                     </td>
-                    <td><a href="/quotes/random"> Random Quote from Any Movie</a></td>
-                    <td>
+                    <td data-label="Description"><a href="/quotes/random"> Random Quote from Any Movie</a></td>
+                    <td data-label="Response">
                         <pre><code>"Shrek: Donkey, two things okay? Shut... up!" // string</code></pre>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td data-label="Endpoint">
                         <code><strong>GET</strong> /:movie_id</code>
                     </td>
-                    <td> <text>
+                    <td data-label="Description"> <text>
                             Get All Items for Movie
                         </text>
                     </td>
-                    <td>
+                    <td data-label="Response">
                         <pre><code>{
     "id": 0,
     "name": "Shrek",
@@ -176,15 +186,15 @@ ${head}
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td data-label="Endpoint">
                         <code><strong>GET</strong> /:movie_id/cast/top</code>
                     </td>
-                    <td>
+                    <td data-label="Description">
                         <text>
                             Get Top Cast for Movie
                         </text>
                     </td>
-                    <td>
+                    <td data-label="Response">
                         <pre><code>[
     {
         "name": "Mike Myers",
@@ -201,41 +211,41 @@ ${head}
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td data-label="Endpoint">
                         <code><strong>GET</strong> /:movie_id/quotes</code>
                     </td>
-                    <td>
+                    <td data-label="Description">
                         <text>
                             Get All Quotes for Movie
                         </text>
                     </td>
-                    <td>
+                    <td data-label="Response">
                         <pre><code>["quote 1", "quote 2", ...] // array of strings</code></pre>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td data-label="Endpoint">
                         <code><strong>GET</strong> /:movie_id/quotes/random</code>
                     </td>
-                    <td>
+                    <td data-label="Description">
                         <text>
                             Get a Random Quote from A Movie as JSON
                         </text>
                     </td>
-                    <td>
+                    <td data-label="Response">
                         <pre><code>The Donkey: All right, I hope you heard that? She called me a \"noble steed.\" She thinks I'm a steed. // string</code></pre>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td data-label="Endpoint">
                         <code><strong>GET</strong> /:movie_id/quotes/random/text</code>
                     </td>
-                    <td>
+                    <td data-label="Description">
                         <text>
                             Get a Random Quote from the movie as Text
                         </text>
                     </td>
-                    <td>
+                    <td data-label="Response">
                         <pre><code>Shrek: That'll do, Donkey. That'll do.</code></pre>
                     </td>
                 </tr>

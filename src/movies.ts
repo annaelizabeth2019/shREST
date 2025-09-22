@@ -10,38 +10,28 @@ export type Movie = {
     }[];
     quotes: string[];
 };
-var movies: Movie[] = [];
 
-// update the movies array with each movie
-for (const key in data) {
-    if (data.hasOwnProperty(key)) {
-        const movie = data[key as keyof typeof data];
-        const quotes = movie.quotes;
-        const topCast = movie.top_cast;
-        movies.push(movie);
-    }
-}
+// Initialize movies array from data
+const movies: Movie[] = Object.values(data);
 
+// Get movies that have quotes
+const getMoviesWithQuotes = (): Movie[] => movies.filter(movie => movie.quotes.length > 0);
 
+// Get a random movie that has quotes
 const getRandomMovieForQuote = (): number => {
-    var values: number[] = []
-    movies.forEach((m, i) => {
-        if (m.quotes.length) {
-            console.log(m.id, i)
-            values.push(i)
-        }
-    })
-    const index = Math.floor(Math.random() * values.length);
-    console.log(index, "values", values)
-    return values[index];
-};
-const getRandomQuote = (id: number): string => {
-    const quotes = movies[id].quotes
-    if (quotes.length == 0) {
-        return ""
-    }
-    const index = Math.floor(Math.random() * quotes.length);
-    return quotes[index];
+    const moviesWithQuotes = getMoviesWithQuotes();
+    const randomIndex = Math.floor(Math.random() * moviesWithQuotes.length);
+    return moviesWithQuotes[randomIndex].id;
 };
 
-export { getRandomMovieForQuote, getRandomQuote, movies }
+// Get a random quote from a specific movie
+const getRandomQuote = (movieId: number): string => {
+    const movie = movies.find(m => m.id === movieId);
+    if (!movie || movie.quotes.length === 0) {
+        return "";
+    }
+    const randomIndex = Math.floor(Math.random() * movie.quotes.length);
+    return movie.quotes[randomIndex];
+};
+
+export { getRandomMovieForQuote, getRandomQuote, movies };

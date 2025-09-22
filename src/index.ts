@@ -5,6 +5,7 @@ import { serveStatic } from "hono/serve-static";
 import { getRandomMovieForQuote, getRandomQuote, movies } from "./movies";
 import html from "./html";
 import styles from "./styles";
+import { quoteHandler, getRandomQuoteToText } from "./quotes";
 
 type Bindings = {
     assets: R2Bucket
@@ -47,11 +48,26 @@ app.get('/public/icon.png', async (c) => {
     }
 });
 
+// serve JavaScript file
+app.get('/public/quote-handler.js', async (c) => {
+    try {
+        return new Response(quoteHandler, {
+            status: 200,
+            headers: {
+                'Content-Type': 'application/javascript',
+            }
+        });
+    } catch (err) {
+        return new Response("File not found", { status: 404 });
+    }
+});
+
 app.use("*", cors());
 
 app.get("/", (c) => c.html(html));
 
 app.get("/quotes/random", (c) => c.json(getRandomQuote(getRandomMovieForQuote())));
+app.get("/quotes/random/to_text", (c) => c.json(getRandomQuoteToText()));
 app.get("/movies", (c) => c.json(movies.map(m => ({
     name: m.name,
     id: m.id,
